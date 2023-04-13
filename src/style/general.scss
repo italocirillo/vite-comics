@@ -8,11 +8,12 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: black;
+    z-index: 1;
 }
 
 img {
     max-width: 100%;
-    max-height: 100%;
 }
 
 .container {

@@ -17,7 +17,7 @@ export default {
 
 main {
     background-color: $sfondo-nero;
-    padding: 4em 0em;
+    padding: 10em 0em 4em 0em;
 }
 
 h1 {

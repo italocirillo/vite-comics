@@ -82,17 +82,25 @@ export default {
 <style scoped lang="scss">
 @use "../style/partials/variables" as*;
 
+header {
+    width: 100%;
+    background-color: white;
+    position: fixed;
+}
+
 header .container {
-    height: 100px;
-    z-index: 10;
+    height: 120px;
+    z-index: 1;
     display: flex;
     justify-content: space-between;
 
-    .logo {
+    .sezione-logo {
         padding: 0.5em 0em;
+        width: 20%;
     }
 
     nav {
+        width: 80%;
         display: flex;
         align-items: center;
 
