@@ -62,32 +62,35 @@ export default {
 
 <template>
     <header>
-        <div class="sezione-logo">
-            <a href="#">
-                <img class="logo" src="../assets/img/dc-logo.png" alt="">
-            </a>
+        <div class="container">
+            <div class="sezione-logo">
+                <a href="#">
+                    <img class="logo" src="../assets/img/dc-logo.png" alt="">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li v-for="link in links" :class="link.current ? 'active' : ''">
+                        <a href=" {{ link.url }}">{{ link.text }}</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li v-for="link in links" :class="link.current ? 'active' : ''">
-                    <a href=" {{ link.url }}">{{ link.text }}</a>
-                </li>
-            </ul>
-        </nav>
     </header>
 </template>
 
 <style scoped lang="scss">
 @use "../style/partials/variables" as*;
 
-header {
+header .container {
     height: 100px;
     z-index: 10;
     display: flex;
     justify-content: space-between;
-    padding: 1em 0em;
 
-
+    .logo {
+        padding: 0.5em 0em;
+    }
 
     nav {
         display: flex;
