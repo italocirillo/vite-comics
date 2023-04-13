@@ -1,5 +1,4 @@
 <script>
-import { registerRuntimeCompiler } from 'vue';
 
 export default {
     name: "AppFooter",
@@ -218,9 +217,9 @@ export default {
                 <nav class="contacts">
                     <h3>follow us</h3>
                     <ul>
-                        <li v-for="elemento in footerIconList">
+                        <li v-for="element in footerIconList">
                             <a href="">
-                                <img :src="getImagePath(elemento.name)" alt="">
+                                <img :src="getImagePath(element.name)" alt="{{ element.name }}">
                             </a>
                         </li>
                     </ul>
@@ -242,7 +241,7 @@ footer {
         background-image: url(../assets/img/footer-bg.jpg);
         background-size: cover;
         position: center center;
-        padding: 1em 0em;
+        padding: 2em 0em;
         position: relative;
         z-index: -2;
 
