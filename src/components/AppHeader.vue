@@ -78,7 +78,6 @@ export default {
 </template>
 
 <style scoped lang="scss">
-@use "../style/partials/mixins" as*;
 @use "../style/partials/variables" as*;
 
 header {
