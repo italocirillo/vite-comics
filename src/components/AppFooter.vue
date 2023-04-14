@@ -7,6 +7,7 @@ export default {
             list: [
                 {
                     nomeLista: "dc comics",
+                    col: 1,
                     elementiLista: [
                         {
                             name: "Characters",
@@ -51,22 +52,8 @@ export default {
                     ]
                 },
                 {
-                    nomeLista: "shop",
-                    elementiLista: [
-                        {
-                            name: "Shop DC",
-                            url: "#",
-                            status: false,
-                        },
-                        {
-                            name: "Shop DC Collectibles",
-                            url: "#",
-                            status: false,
-                        },
-                    ]
-                },
-                {
                     nomeLista: "dc",
+                    col: 2,
                     elementiLista: [
                         {
                             name: "Term Of Use",
@@ -127,6 +114,7 @@ export default {
                 },
                 {
                     nomeLista: "sities",
+                    col: 3,
                     elementiLista: [
                         {
                             name: "DC",
@@ -154,7 +142,23 @@ export default {
                             status: false,
                         },
                     ]
-                }
+                },
+                {
+                    nomeLista: "shop",
+                    col: 1,
+                    elementiLista: [
+                        {
+                            name: "Shop DC",
+                            url: "#",
+                            status: false,
+                        },
+                        {
+                            name: "Shop DC Collectibles",
+                            url: "#",
+                            status: false,
+                        },
+                    ]
+                },
             ],
             footerIconList: [
                 {
@@ -190,25 +194,59 @@ export default {
 
 <template>
     <footer>
+        <!-- Footer top -->
         <div class="footer-top">
             <div class="container">
                 <div class="row">
                     <ul class="col1">
-                        <li class="macro-list" v-for="elementoMacroList in list">
-                            <h3>{{ elementoMacroList.nomeLista }}</h3>
-                            <ul>
-                                <li v-for="elemento in elementoMacroList.elementiLista">
-                                    <a href="{{ elemento.url }}">{{ elemento.name }}</a>
-                                </li>
-                            </ul>
-                        </li>
+                        <div>
+                            <li class="macro-list">
+                                <h3>{{ list[0].nomeLista }}</h3>
+                                <ul>
+                                    <li v-for="elemento in list[0].elementiLista">
+                                        <a :href="elemento.url">{{ elemento.name }}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="macro-list">
+                                <h3>{{ list[3].nomeLista }}</h3>
+                                <ul>
+                                    <li v-for="elemento in list[3].elementiLista">
+                                        <a :href="elemento.url">{{ elemento.name }}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </div>
+                        <div>
+                            <li class="macro-list">
+                                <h3>{{ list[1].nomeLista }}</h3>
+                                <ul>
+                                    <li v-for="elemento in list[1].elementiLista">
+                                        <a :href="elemento.url">{{ elemento.name }}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </div>
+                        <div>
+                            <li class="macro-list">
+                                <h3>{{ list[2].nomeLista }}</h3>
+                                <ul>
+                                    <li v-for="elemento in list[2].elementiLista">
+                                        <a :href="elemento.url">{{ elemento.name }}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </div>
+
                     </ul>
                     <div class="col2">
-                        <img src="../assets/img/dc-logo-bg.png" alt="">
+                        <img src="../assets/img/dc-logo-bg.png" alt="logo-bg">
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Fine footer top -->
+        <!-- Footer bottom -->
         <div class="footer-bottom">
             <div class="container">
                 <div class="sing-up">
@@ -218,14 +256,15 @@ export default {
                     <h3>follow us</h3>
                     <ul>
                         <li v-for="element in footerIconList">
-                            <a href="">
-                                <img :src="getImagePath(element.name)" alt="{{ element.name }}">
+                            <a :href="element.url">
+                                <img :src="getImagePath(element.name)" :alt="element.name">
                             </a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </div>
+        <!-- Fine foter bottom -->
     </footer>
 </template>
 
@@ -255,19 +294,15 @@ footer {
         }
 
         .row {
-            display: flex;
-            justify-content: center;
-            height: 300px;
-
             .col1 {
                 width: 50%;
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 align-items: start;
-                flex-wrap: wrap;
 
                 .macro-list {
                     padding: 0.5em 0.5em;
+                    z-index: 1;
 
                     h3 {
                         text-transform: uppercase;
@@ -279,12 +314,13 @@ footer {
 
             .col2 {
                 width: 50%;
+                display: inline-block;
+                position: absolute;
+                bottom: -100px;
+                right: 0%;
 
                 img {
-                    width: 100%;
-                    position: relative;
-                    bottom: 50%;
-                    right: 0%;
+                    width: 80%;
                 }
             }
         }

@@ -65,13 +65,13 @@ export default {
         <div class="container">
             <div class="sezione-logo">
                 <a href="#">
-                    <img class="logo" src="../assets/img/dc-logo.png" alt="">
+                    <img class="logo" src="../assets/img/dc-logo.png" alt="logo">
                 </a>
             </div>
             <nav>
                 <ul>
                     <li v-for="link in links" :class="link.current ? 'active' : ''">
-                        <a href=" {{ link.url }}">{{ link.text }}</a>
+                        <a :href="link.url">{{ link.text }}</a>
                     </li>
                 </ul>
             </nav>

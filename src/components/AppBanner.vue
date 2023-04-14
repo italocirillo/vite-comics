@@ -47,8 +47,8 @@ export default {
         <div class="container">
             <ul>
                 <li v-for="element in bannerList">
-                    <a href="element.url">
-                        <img :src="getImagePath(element.src)" alt="{{ element.name }}">
+                    <a :href="element.url">
+                        <img :src="getImagePath(element.src)" :alt="element.name">
                         <p>{{ element.name }}</p>
                     </a>
                 </li>
