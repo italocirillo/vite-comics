@@ -63,6 +63,8 @@ export default {
 .banner {
     background-color: $active-color;
     padding: 2em 0em;
+    position: relative;
+    z-index: 1;
 
     ul {
         width: 100%;

@@ -282,7 +282,6 @@ footer {
         position: center center;
         padding: 2em 0em;
         position: relative;
-        z-index: -2;
 
         ul {
             list-style: none;
@@ -290,6 +289,10 @@ footer {
             a {
                 text-decoration: none;
                 color: lighten($primary-color, 10%);
+            }
+
+            a:hover {
+                text-decoration: underline;
             }
         }
 
@@ -329,6 +332,8 @@ footer {
     .footer-bottom {
         padding: 2em 0em;
         background-color: #303030;
+        position: relative;
+        z-index: 1;
 
         .container {
             display: flex;
