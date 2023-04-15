@@ -86,53 +86,54 @@ header {
     width: 100%;
     background-color: white;
     position: fixed;
-}
+    z-index: 10;
 
-header .container {
-    height: 120px;
-    z-index: 1;
-    display: flex;
-    justify-content: space-between;
-
-    .sezione-logo {
-        padding: 0.5em 0em;
-        width: 20%;
-    }
-
-    nav {
-        width: 80%;
+    .container {
+        height: 120px;
+        z-index: 1;
         display: flex;
-        align-items: center;
+        justify-content: space-between;
 
-        ul {
-            list-style: none;
-            height: 100%;
-            line-height: 100%;
-            display: flex;
-            align-items: center;
+        .sezione-logo {
+            padding: 0.5em 0em;
+            width: 20%;
+        }
 
-            li {
+        nav {
+            width: 80%;
+
+            ul {
+                width: 100%;
+                list-style: none;
                 height: 100%;
+                line-height: 100%;
                 display: flex;
                 align-items: center;
-                cursor: pointer;
 
-                a {
-                    text-decoration: none;
-                    color: $primary-color;
-                    font-weight: 900;
-                    text-transform: uppercase;
-                    padding: 0em 1em;
-                }
+                li {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
 
-                &.active a,
-                &:hover a {
-                    color: $active-color;
-                }
+                    a {
+                        text-decoration: none;
+                        color: $primary-color;
+                        font-weight: 900;
+                        text-transform: uppercase;
+                    }
 
-                &.active,
-                &:hover {
-                    border-bottom: 2px solid $active-color;
+                    &.active a,
+                    &:hover a {
+                        color: $active-color;
+                    }
+
+                    &.active,
+                    &:hover {
+                        border-bottom: 2px solid $active-color;
+                    }
                 }
             }
         }

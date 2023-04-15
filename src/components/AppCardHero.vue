@@ -1,9 +1,14 @@
 <script>
+import Card from './Card.vue';
+
 export default {
     name: "AppCardHero",
-    Data() {
+    components: {
+        Card,
+    },
+    data() {
         return {
-            card: [
+            cards: [
                 {
                     thumb: 'https://www.coverbrowser.com/image/action-comics/1-1.jpg',
                     price: '$19.99',
@@ -78,61 +83,88 @@ export default {
                 },
             ]
         }
-    }
+    },
 }
 </script>
 
 <template>
-    <main>
+    <main class="app-card-hero">
+        <div class="jumbotron">
+            <img src="../assets/img/jumbotron.jpg" alt="">
+        </div>
         <div class="container">
-            <h1> --&gt; Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni facilis quasi obcaecati, maiores
-                praesentium veritatis voluptates, vitae totam minima est autem temporibus, dolores nostrum ipsam debitis
-                cumque delectus labore eaque!Lorem
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quos eos odio deleniti ullam officia velit
-                molestias id accusantium totam dignissimos, ea cupiditate quam dolorum earum architecto ipsam voluptate
-                error! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis obcaecati, sunt veniam dicta ut
-                sed temporibus illum unde quaerat saepe. Sed ad sapiente, et dolores repellendus ratione doloribus error
-                ducimus?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, iste dolores blanditiis, mollitia totam
-                dignissimos quidem tempore adipisci voluptatum optio ex doloremque deserunt, aperiam pariatur illo
-                cupiditate impedit. Minus, sint.
-                Quam, illo, dolore distinctio fugit error dolor velit eius praesentium eos suscipit qui mollitia minus,
-                possimus voluptatibus? Earum, omnis. Voluptas quo necessitatibus omnis voluptates rerum voluptatum quasi
-                consequatur, a facilis?
-                Ex, sint animi explicabo in ratione impedit tempora, ipsam, repudiandae facilis asperiores error praesentium
-                saepe? Quidem praesentium dicta illo minus repellendus assumenda ut delectus cupiditate dolorem iste,
-                tempore quasi illum!
-                Impedit unde quae explicabo qui ab laudantium recusandae, obcaecati quibusdam similique aperiam ea ipsa
-                consequatur? Ipsam nesciunt provident amet earum. Autem dolores fuga, consectetur repellendus numquam
-                molestiae totam velit! Eveniet.
-                Inventore quas corrupti aperiam suscipit, vel aut tempore iure unde consectetur dolore consequuntur numquam
-                atque odit. At ipsum, doloremque excepturi praesentium enim explicabo quo delectus error. Enim ea voluptas
-                minus.
-                Ex totam officia sed ullam dolorum delectus magnam at aliquid repellat natus ipsa hic labore odit sunt,
-                maiores, quam perferendis quibusdam maxime quasi cumque quod, corrupti ea mollitia voluptatem. Impedit.
-                Mollitia placeat, asperiores provident impedit cupiditate assumenda sapiente atque, repellendus eum sint
-                perferendis nihil qui ratione architecto incidunt totam illo odio natus expedita voluptas exercitationem
-                aperiam! Corrupti, distinctio amet. Itaque.
-                Et pariatur fugit minima ducimus quasi nulla aperiam consequatur tempore, minus magnam deserunt dolorum
-                debitis, nostrum veritatis vitae dolore animi voluptatum voluptas repudiandae alias! Sunt nemo maxime magni
-                maiores vel?
-            Reiciendis beatae harum omnis esse, enim ipsum iure? Accusamus cum tempora sunt ex qui architecto, aliquid
-            ipsum repellendus earum aliquam incidunt quo provident. Esse, inventore ipsum impedit eaque ut ea!
-            Assumenda repudiandae ex inventore, officia dignissimos asperiores esse unde? Sapiente, laboriosam voluptas
-            illum vero officiis ex quaerat, nesciunt nobis distinctio labore ipsam ad? Perspiciatis quis quisquam fugit,
-            iure quod dolores.
-            lorem*100 &lt;-- </h1>
-    </div>
-</main></template>
+            <button class="button current-series">
+                <a href="#">
+                    <h1>Current series</h1>
+                </a>
+            </button>
+            <div class="row">
+                <Card v-for="(card, index) in cards" :key="index" :img="card.thumb" :title="card.series" />
+            </div>
+            <div class="load-more">
+                <button class="button">
+                    <a href="#">load more</a>
+                </button>
+            </div>
+        </div>
+    </main>
+</template>
 
-<style scoped lang="scss">@use "../style/partials/variables" as*;
+<style scoped lang="scss">
+@use "../style/partials/variables" as*;
 
 main {
     background-color: $sfondo-nero;
-    padding: 10em 0em 4em 0em;
-}
+    padding: 7em 0em 2em 0em;
+    text-align: start;
 
-h1 {
-    color: white;
-    font-size: 1.5rem;
-}</style>
+    h1 {
+        color: white;
+        font-size: 1rem;
+    }
+
+    .jumbotron {
+        height: 40vh;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+    }
+
+    .row {
+        padding: 2em 0em;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .load-more {
+        text-align: center;
+    }
+
+    .button {
+        background-color: $active-color;
+        border-style: none;
+        cursor: pointer;
+        padding: 1em 3em;
+
+        a {
+            text-decoration: none;
+            color: white;
+            text-transform: uppercase;
+            font-size: 0.8em;
+            font-weight: 900;
+        }
+
+        &.current-series {
+            padding: 1em;
+            position: relative;
+            transform: translate(0%, -50%);
+        }
+    }
+
+}
+</style>
